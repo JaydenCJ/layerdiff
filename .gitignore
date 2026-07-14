@@ -1,0 +1,17 @@
+# build artifacts
+/layerdiff
+/dist/
+
+# test and coverage output
+*.test
+*.out
+coverage.*
+
+# demo checkpoints written by examples
+/demo/
+
+# editor noise
+.idea/
+.vscode/
+*.swp
+.DS_Store

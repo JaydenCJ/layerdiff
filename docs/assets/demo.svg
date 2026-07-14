@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="620" viewBox="0 0 780 620" font-family="Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" xml:space="preserve">
+  <rect width="780" height="620" rx="10" fill="#101418"/>
+  <circle cx="24" cy="22" r="6" fill="#ff5f56"/>
+  <circle cx="44" cy="22" r="6" fill="#ffbd2e"/>
+  <circle cx="64" cy="22" r="6" fill="#27c93f"/>
+  <text x="390" y="27" fill="#8b949e" text-anchor="middle" font-size="12">layerdiff — what did finetuning actually touch?</text>
+  <g fill="#c9d1d9">
+    <text x="24" y="58"><tspan fill="#7ee787">$</tspan> layerdiff diff --top 3 base/ tuned/</text>
+    <text x="24" y="86"><tspan fill="#79c0ff">layerdiff</tspan> — base/ → tuned/</text>
+    <text x="24" y="105">tensors: 23 compared · 16 identical · 0 equivalent · <tspan fill="#f778ba">5 changed</tspan> · <tspan fill="#7ee787">1 added</tspan> · <tspan fill="#ffa657">1 removed</tspan> · 0 mismatched</text>
+    <text x="24" y="124" fill="#8b949e">data: 37.3 KiB vs 41.2 KiB, streamed in constant memory</text>
+    <text x="24" y="156" fill="#d2a8ff">changed layers (4 of 7)</text>
+    <text x="24" y="175" fill="#8b949e">  layer           tensors  changed  added  removed    max|Δ|   mean|Δ|    rel L2</text>
+    <text x="24" y="194">  <tspan fill="#79c0ff">lm_head</tspan>               1        1      0        0  4.99e-03  2.60e-03  5.17e-02</text>
+    <text x="24" y="213">  <tspan fill="#79c0ff">model.layers.1</tspan>        6        1      0        0  1.00e-03  5.50e-04  4.85e-02</text>
+    <text x="24" y="232">  <tspan fill="#79c0ff">model.layers.2</tspan>        7        3      1        0  <tspan fill="#f778ba">3.00e-02</tspan>  7.36e-03  1.66e-01</text>
+    <text x="24" y="251">  <tspan fill="#79c0ff">model.rotary</tspan>          1        0      0        1         -         -         -</text>
+    <text x="24" y="283" fill="#d2a8ff">changed tensors (3 of 5 shown, by max|Δ|)</text>
+    <text x="24" y="302" fill="#8b949e">  tensor                         dtype  shape      max|Δ|   mean|Δ|  changed elems  cosine</text>
+    <text x="24" y="321">  model.layers.2.attn.wq.weight  F32    [16,16]  <tspan fill="#f778ba">3.00e-02</tspan>  1.44e-02        256/256  0.9596</text>
+    <text x="24" y="340">  model.layers.2.attn.wk.weight  F32    [16,16]  <tspan fill="#f778ba">2.00e-02</tspan>  9.86e-03        256/256  0.9826</text>
+    <text x="24" y="359">  model.layers.2.mlp.up.weight   F32    [64,16]  <tspan fill="#f778ba">1.00e-02</tspan>  4.98e-03      1024/1024  0.9949</text>
+    <text x="24" y="391" fill="#7ee787">added tensors (1)</text>
+    <text x="24" y="410" fill="#8b949e">  tensor                          dtype  shape      bytes</text>
+    <text x="24" y="429">  <tspan fill="#7ee787">model.layers.2.mlp.gate.weight</tspan>  F32    [64,16]  4.0 KiB</text>
+    <text x="24" y="461" fill="#ffa657">removed tensors (1)</text>
+    <text x="24" y="480" fill="#8b949e">  tensor                 dtype  shape  bytes</text>
+    <text x="24" y="499">  <tspan fill="#ffa657">model.rotary.inv_freq</tspan>  F32    [8]     32 B</text>
+    <text x="24" y="537">verdict: <tspan fill="#f778ba">DIFFERENT</tspan>  <tspan fill="#8b949e">(exit 1)</tspan></text>
+    <text x="24" y="580" fill="#8b949e">constant memory, framework-free — a sharded 70B pair diffs on a laptop</text>
+  </g>
+</svg>
